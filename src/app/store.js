@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {RotateSliceReducer,MenuHiddenReducer} from '../features/reducer'
+import {RotateSliceReducer,MenuHiddenReducer,AddProjectReducer} from '../features/reducer'
 const store =  configureStore({
     reducer : {
         RotateIconSlice : RotateSliceReducer,
-        MenuHidden : MenuHiddenReducer
+        MenuHidden : MenuHiddenReducer,
+        AddProject : AddProjectReducer
     }
 });
 

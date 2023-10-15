@@ -27,8 +27,24 @@ const MenuHidden = createSlice({
     }
   }
 });
+const AddProject = createSlice({
+  name: 'AddProject',
+  initialState: 'hidden',
+  reducers: {
+    AddProjectHidden: (state) => {
+      if (state == 'hidden') {
+        return state = 'block'
+      } else {
+        return state = 'hidden'
+      }
+    }
+  }
+});
+
+const AddProjectReducer = AddProject.reducer
 const RotateSliceReducer = RotateIconSlice.reducer
 const MenuHiddenReducer = MenuHidden.reducer
 export const {changeHidden} = MenuHidden.actions
 export const { changeIconsClass } = RotateIconSlice.actions
-export  {RotateSliceReducer,MenuHiddenReducer};
+export const {AddProjectHidden} = AddProject.actions
+export  {RotateSliceReducer,MenuHiddenReducer,AddProjectReducer};
