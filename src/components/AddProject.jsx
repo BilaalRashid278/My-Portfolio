@@ -5,16 +5,20 @@ import { AddProjectHidden } from '../features/reducer.js'
 
 
 const AddProject = () => {
-  let AddSkills = [];
   const [GetUrl, setGetUrl] = useState('');
+  let AddSkills = [];
   const dispatch = useDispatch();
   const chooseFileRef = useRef(null);
   const chooseNameRef = useRef(null);
   const chooseDescriptionRef = useRef(null);
-  const chooseSkillsRef = useRef([]);
+  const chooseSkillsRef = useRef(null);
   const AddAllDetailsProjects = () => {
     if (chooseNameRef.current.value == '' || chooseDescriptionRef.current.value == '' || AddSkills == '' || GetUrl == '') {
-      console.log('Please Enter a Project Details')
+      console.log('Please Enter a Project Details');
+      console.log(chooseNameRef.current.value)
+      console.log(chooseDescriptionRef.current.value)
+      console.log(AddSkills);
+      console.log(GetUrl);
     } else {
       const DetailsObject = {
         name: chooseNameRef.current.value,
@@ -48,7 +52,6 @@ const AddProject = () => {
           if (chooseSkillsRef.current.value !== '') {
             AddSkills.push(chooseSkillsRef.current.value);
             console.log(AddSkills);
-            // chooseSkillsRef.current.value = '';
           } else {
             console.log("Input is empty");
           }
