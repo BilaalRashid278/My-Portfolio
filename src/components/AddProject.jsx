@@ -1,26 +1,26 @@
-import {useRef,useState} from 'react'
-import {MdAddCircle} from 'react-icons/md'
-import {useDispatch} from 'react-redux';
-import {AddProjectHidden} from '../features/reducer.js'
+import { useRef, useState } from 'react'
+import { MdAddCircle } from 'react-icons/md'
+import { useDispatch } from 'react-redux';
+import { AddProjectHidden } from '../features/reducer.js'
+
 
 const AddProject = () => {
   let AddSkills = [];
-  const [GetUrl,setGetUrl] = useState('');
-  // const AddHiddenValue = useSelector(state => state.AddProject);
+  const [GetUrl, setGetUrl] = useState('');
   const dispatch = useDispatch();
   const chooseFileRef = useRef(null);
   const chooseNameRef = useRef(null);
   const chooseDescriptionRef = useRef(null);
   const chooseSkillsRef = useRef([]);
   const AddAllDetailsProjects = () => {
-    if(chooseNameRef.current.value == '' || chooseDescriptionRef.current.value == '' || AddSkills == '' || GetUrl == ''){
-      console.log('hello')
-    }else{
+    if (chooseNameRef.current.value == '' || chooseDescriptionRef.current.value == '' || AddSkills == '' || GetUrl == '') {
+      console.log('Please Enter a Project Details')
+    } else {
       const DetailsObject = {
-        name : chooseNameRef.current.value,
-        description : chooseDescriptionRef.current.value,
-        img_url : GetUrl,
-        skills : AddSkills
+        name: chooseNameRef.current.value,
+        description: chooseDescriptionRef.current.value,
+        img_url: GetUrl,
+        skills: AddSkills
       }
       const ConvertToJson = JSON.stringify(DetailsObject);
       console.log(ConvertToJson);
@@ -34,12 +34,7 @@ const AddProject = () => {
     chooseDescriptionRef.current.value = ''
     dispatch(AddProjectHidden());
   };
-  // const data = {
-  //   name : chooseNameRef.current.value,
-  //   description : chooseDescriptionRef.current.value,
-  //   img_url : GetUrl
-  // };
-   return (
+  return (
     <div className='flex flex-col gap-4 w-[90%] m-auto py-3'>
       <div className='w-[100%]'>
         <input ref={chooseNameRef} className='w-[100%] outline-none px-3 py-1 rounded-sm' type="text" placeholder='Project Name' />
@@ -48,27 +43,27 @@ const AddProject = () => {
         <textarea ref={chooseDescriptionRef} className='w-[100%] outline-none px-3 py-1 rounded-sm resize-none h-[150px]' type="text" placeholder='Project Description'></textarea>
       </div>
       <div className='w-[100%] flex items-center'>
-         <input ref={chooseSkillsRef} className='w-[80%] outline-none px-3 py-1 rounded-sm ' type="text" />
-         <span onClick={() => {
-            if(chooseSkillsRef.current.value !== ''){
-              AddSkills.push(chooseSkillsRef.current.value);
-              console.log(AddSkills);
-              // chooseSkillsRef.current.value = '';
-            }else{
-              console.log("Input is empty");
-            }
-         }} className='mx-5 text-3xl text-white cursor-pointer'><MdAddCircle/></span>
+        <input ref={chooseSkillsRef} className='w-[80%] outline-none px-3 py-1 rounded-sm ' type="text" placeholder='Add Skills one by one' />
+        <span onClick={() => {
+          if (chooseSkillsRef.current.value !== '') {
+            AddSkills.push(chooseSkillsRef.current.value);
+            console.log(AddSkills);
+            // chooseSkillsRef.current.value = '';
+          } else {
+            console.log("Input is empty");
+          }
+        }} className='mx-5 text-3xl text-white cursor-pointer'><MdAddCircle /></span>
       </div>
       <input onChange={() => {
         const fileUrl = URL.createObjectURL(chooseFileRef.current.files[0]);
         setGetUrl(fileUrl);
       }} ref={chooseFileRef} type='file' className='hidden' />
-      <button className='bg-white  text-black py-1 max-w-[100px] rounded-sm'  onClick={() => {
+      <button className='bg-white  text-black py-1 max-w-[100px] rounded-sm' onClick={() => {
         chooseFileRef.current.click()
       }}>Add Image</button>
       <div className='flex gap-3 justify-end mt-5'>
-         <button onClick={CancelAddProject} className='bg-white  text-black py-1 w-[60px] rounded-sm'>Cancel</button>
-         <button onClick={AddAllDetailsProjects} className='bg-white  text-black py-1 w-[60px]  rounded-sm'>Add</button>
+        <button onClick={CancelAddProject} className='bg-white  text-black py-1 w-[60px] rounded-sm'>Cancel</button>
+        <button onClick={AddAllDetailsProjects} className='bg-white  text-black py-1 w-[60px]  rounded-sm'>Add</button>
       </div>
     </div>
   )
