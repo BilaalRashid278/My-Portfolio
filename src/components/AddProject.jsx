@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { AddProjectHidden } from '../features/reducer.js'
 
 
+let AddSkills = [];
 const AddProject = () => {
   const [GetUrl, setGetUrl] = useState('');
-  let AddSkills = [];
   const dispatch = useDispatch();
   const chooseFileRef = useRef(null);
   const chooseNameRef = useRef(null);
@@ -30,7 +30,9 @@ const AddProject = () => {
       console.log(ConvertToJson);
       chooseNameRef.current.value = ''
       chooseDescriptionRef.current.value = ''
+      chooseSkillsRef.current.value = '';
       dispatch(AddProjectHidden());
+      AddSkills = [];
     }
   };
   const CancelAddProject = () => {
@@ -52,6 +54,7 @@ const AddProject = () => {
           if (chooseSkillsRef.current.value !== '') {
             AddSkills.push(chooseSkillsRef.current.value);
             console.log(AddSkills);
+            chooseSkillsRef.current.value = '';
           } else {
             console.log("Input is empty");
           }
