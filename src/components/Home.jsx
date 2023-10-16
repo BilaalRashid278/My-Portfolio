@@ -4,6 +4,8 @@ import Qualification from './qualification'
 import '../index.css'
 import Ingrediants from './Ingrediants'
 import Projects from './Projects'
+import Contactus from './Contactus'
+import Footer from './footer'
 
 const Home = () => {
    
@@ -21,6 +23,12 @@ const Home = () => {
                 </div>
                 <div className='projects translate-y-14'>
                     <Projects/>
+                </div>
+                <div className='translate-y-14'>
+                    <Contactus/>
+                </div>
+                <div className='translate-y-14'>
+                    <Footer/>
                 </div>
             </div>
         </React.Fragment>

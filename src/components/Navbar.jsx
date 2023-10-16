@@ -22,7 +22,7 @@ const Navbar = () => {
         <ul className='hidden lg:flex gap-2 text-sm'>
           <li className='px-3 py-2 transition-all duration-1000 hover:bg-[#075985] hover:text-white rounded-sm'><a href="#ingrediants">Ingrediants</a></li>
           <li className='px-3 py-2 transition-all duration-1000 hover:bg-[#075985] hover:text-white rounded-sm'><a href="#projects">Projects</a></li>
-          <li className='px-3 py-2 transition-all duration-1000 hover:bg-[#075985] hover:text-white rounded-sm'><Link to='/'>Contact</Link></li>
+          <li className='px-3 py-2 transition-all duration-1000 hover:bg-[#075985] hover:text-white rounded-sm'><a href='#contact'>Contact</a></li>
           <li onClick={AddProjectFunction} className='px-4 py-2 rounded-sm transition-all duration-1000 bg-[#075985] text-white hover:bg-blue-500 cursor-pointer border-none'><Link to='/'>Add Project</Link></li>
         </ul>
         <div onClick={() => {
@@ -39,7 +39,7 @@ const Navbar = () => {
         <ul className='lg:flex gap-2 text-sm'>
           <li className='px-3 py-2 cursor-pointer transition-all duration-500 hover:bg-[#075985] hover:text-white'><a href="#ingrediants">Ingrediants</a></li>
           <li className='px-3 py-2 cursor-pointer transition-all duration-500 hover:bg-[#075985] hover:text-white'><a href="#projects">Projects</a></li>
-          <li className='px-3 py-2 cursor-pointer transition-all duration-500 hover:bg-[#075985] hover:text-white'><Link to='/'>Contact</Link></li>
+          <li className='px-3 py-2 cursor-pointer transition-all duration-500 hover:bg-[#075985] hover:text-white'><a href='#contact'>Contact</a></li>
           <li onClick={AddProjectFunction} className='px-4 cursor-pointer py-2 transition-all duration-500 bg-[#075985] text-white hover:bg-blue-500 border-none'><Link to='/'>Add Project</Link></li>
         </ul>
       </div>
