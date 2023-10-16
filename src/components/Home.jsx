@@ -8,10 +8,10 @@ import Contactus from './Contactus'
 import Footer from './footer'
 
 const Home = () => {
-   
+
     return (
         <React.Fragment>
-            <div>
+            <div className='main-div-scroll'>
                 <div className='nav-wrapper z-10 fixed w-[100%] bg-white'>
                     <Navbar />
                 </div>

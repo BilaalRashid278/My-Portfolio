@@ -1,9 +1,11 @@
 import {AiFillGithub} from 'react-icons/ai'
 import {AiFillLinkedin} from 'react-icons/ai'
 import {MdEmail} from 'react-icons/md'
+import { useRef } from 'react'
 const Contactus = () => {
+  const getElementIDRef = useRef(null);
   return (
-    <div id='contact'>
+    <div ref={getElementIDRef} id='contact'>
       <section className='w-[90%] m-auto'>
         <div>
             <div className='my-2'><h1 className='font-bold text-2xl'>Contact</h1></div>
