@@ -15,10 +15,6 @@ const AddProject = () => {
   const AddAllDetailsProjects = () => {
     if (chooseNameRef.current.value == '' || chooseDescriptionRef.current.value == '' || AddSkills == '' || GetUrl == '') {
       console.log('Please Enter a Project Details');
-      console.log(chooseNameRef.current.value)
-      console.log(chooseDescriptionRef.current.value)
-      console.log(AddSkills);
-      console.log(GetUrl);
     } else {
       const DetailsObject = {
         name: chooseNameRef.current.value,
