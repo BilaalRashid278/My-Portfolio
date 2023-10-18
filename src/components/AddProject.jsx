@@ -3,10 +3,23 @@ import { MdAddCircle } from 'react-icons/md'
 import { useDispatch } from 'react-redux';
 import { AddProjectHidden } from '../features/reducer.js'
 
+const getDataFunction = (data) => {
+  console.log("Hello Data")
+    console.log(data)
+};
 
 let AddSkills = [];
 const AddProject = () => {
   const [GetUrl, setGetUrl] = useState('');
+  const EnterDataFromKey = () => {
+    if (chooseSkillsRef.current.value !== '') {
+      AddSkills.push(chooseSkillsRef.current.value);
+      console.log(AddSkills);
+      chooseSkillsRef.current.value = '';
+    } else {
+      console.log("Input is empty");
+    }
+  }
   const dispatch = useDispatch();
   const chooseFileRef = useRef(null);
   const chooseNameRef = useRef(null);
@@ -23,7 +36,7 @@ const AddProject = () => {
         skills: AddSkills
       }
       const ConvertToJson = JSON.stringify(DetailsObject);
-      console.log(ConvertToJson);
+      getDataFunction(ConvertToJson);
       chooseNameRef.current.value = ''
       chooseDescriptionRef.current.value = ''
       chooseSkillsRef.current.value = '';
@@ -45,7 +58,9 @@ const AddProject = () => {
         <textarea ref={chooseDescriptionRef} className='w-[100%] outline-none px-3 py-1 rounded-sm resize-none h-[150px]' type="text" placeholder='Project Description'></textarea>
       </div>
       <div className='w-[100%] flex items-center'>
-        <input ref={chooseSkillsRef} className='w-[80%] outline-none px-3 py-1 rounded-sm ' type="text" placeholder='Add Skills one by one' />
+        <input onKeyDown={(event) => {
+          event.key == "Enter" ? EnterDataFromKey() : "Not Key Enter"
+        }} ref={chooseSkillsRef} className='w-[80%] outline-none px-3 py-1 rounded-sm ' type="text" placeholder='Add Skills one by one' />
         <span onClick={() => {
           if (chooseSkillsRef.current.value !== '') {
             AddSkills.push(chooseSkillsRef.current.value);

@@ -32,7 +32,7 @@ const Projects = () => {
             </div>
             <div className='my-10'>
                 <div className="card card-1 mb-7 w-[100%] flex flex-col-reverse lg:flex-row-reverse lg:border-r-2 border-b-slate-600">
-                    {apiData.projects.map((value, index) => {
+                    {apiData.projects.map((value) => {
                         return (
                             <>
                                 <div className="content w-[100%] xl:w-[50%] flex justify-center items-center">
@@ -51,7 +51,7 @@ const Projects = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div key={index} className="img w-[100%] xl:w-[50%]">
+                                <div className="img w-[100%] xl:w-[50%]">
                                     <img className='w-[100%]' src={value.image} alt="img1" />
                                 </div>
                             </>

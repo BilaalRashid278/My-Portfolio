@@ -11,21 +11,16 @@ const Qualification = () => {
         <main id='home' ref={AnimationRef} className='w-[90%] m-auto flex flex-col justify-center pt-16 items-center min-h-[calc(100vh-56px)] qualification-aimations'>
             <div onMouseOut={()=>{
             AnimationRef.current.style.transform = 'rotateY(0deg)';
-            AnimationRef.current.style.transitionProperty = 'all';
+            AnimationRef.current.style.transitionProperty = 'transform';
             AnimationRef.current.style.transitionDuration = '1.5s';
             console.log('mouse out')
         }} onMouseOver={() => {
-            AnimationRef.current.style.transform = 'rotateY(180deg)';
-            AnimationRef.current.style.transitionProperty = 'all';
+            AnimationRef.current.style.transform = 'rotateY(360deg)';
+            AnimationRef.current.style.transitionProperty = 'transform';
             AnimationRef.current.style.transitionDuration = '1.5s';
         }} className='w-[70%] md:w-[60%] lg:w-[50%] p-5 flex flex-col items-center justify-center'>
                 <h1 className={`text-7xl md:text-8xl stylishFont colorfull`}>
-                    <span className='text-run-1 text-run'>B</span>
-                    <span className='text-run-2 text-run'>i</span>
-                    <span className='text-run-3 text-run'>l</span>
-                    <span className='text-run-4 text-run'>a</span>
-                    <span className='text-run-5 text-run'>a</span>
-                    <span className='text-run-6 text-run'>l</span>
+                    Bilal
                 </h1>
                 <h2 className={`text-base sm:text-lg md:text-xl lg:text-3xl colorfull`}>Full Stack/MERN Stack Developer</h2>
                 <div>
